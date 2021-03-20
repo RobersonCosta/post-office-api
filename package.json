@@ -1,0 +1,39 @@
+{
+  "name": "post-office-api",
+  "version": "1.0.0",
+  "description": "RESTful API desenvolvida para consultar as funcionalidades dos Correios (Brasil)",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon loader.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RobersonCosta/post-office-api.git"
+  },
+  "author": "Roberson Costa & Talita Pastorini",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RobersonCosta/post-office-api/issues"
+  },
+  "homepage": "https://github.com/RobersonCosta/post-office-api#readme",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "bcrypt": "^5.0.0",
+    "body-parser": "^1.19.0",
+    "cheerio": "^1.0.0-rc.5",
+    "consign": "^0.1.6",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "fs": "0.0.1-security",
+    "jquery": "^3.6.0",
+    "jsdom": "^16.5.1",
+    "nodemon": "^2.0.6",
+    "path": "^0.12.7",
+    "puppeteer": "^8.0.0",
+    "sequelize": "^6.3.5"
+  },
+  "engines": {
+    "node": "14.x"
+  }
+}
