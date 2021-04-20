@@ -1,4 +1,3 @@
-const { consultarCep, calcularPrecoPrazo, rastrearEncomendas } = require("correios-brasil");
 const querystring = require('querystring');
 const { response } = require("express");
 const fetch = require('node-fetch')
@@ -77,7 +76,7 @@ exports.consultZipCode = async(request, response) =>{
      * Função responsável por consultar as informações do CEP informado com
      * base no serviço VIACEP do IBGE
      */
-    const cep = sanitization(request.body.cep) /**Validação do CEP */
+    const cep = sanitization(request.params.cep) /**Validação do CEP */
 
     try {
         const apiResponse = await this.apiPostOfficeGET(`${BASE_CEP}/${cep}/json`)  /**Requisição a base ViaCEP */
@@ -85,16 +84,6 @@ exports.consultZipCode = async(request, response) =>{
         response.status(200).send({message : 'Dados encaminhados com sucesso!', address})  /**Retorno da Resposta */   
     } catch (error) {
         response.status(500).send({message : `Houve um erro ao consultar o cep ${request.body.cep}!`, error : error})  /**Retorno do erro */
-    }
-}
-
-exports.orderTracking = async(request, response) =>{
-    try {
-        // const status = await this.apiPostOfficeGET(`${BASE_RASTREIO}/${request.body.code}`)  /**Requisição a base dos correios para rastrear a encomenda */
-        const status = await rastrearEncomendas(['LB473758526SE'])
-        response.status(200).send({message : 'Dados encaminhados com sucesso!', status})  /**Retorno da Resposta */   
-    } catch (error) {
-        response.status(500).send({message : `Houve um erro ao Rastrear a encomenda ${request.body.code}!`, error : error})  /**Retorno do erro */
     }
 }
 
